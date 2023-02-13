@@ -1,0 +1,14 @@
+newmtl Material__1365
+	Ns 10.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588000 0.588000 0.588000
+	Kd 0.588000 0.588000 0.588000
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka assets/tenant/cdlpkj-dagkshxm/内景/plane_dc_1005_01.png
+	map_Kd assets/tenant/cdlpkj-dagkshxm/内景/plane_dc_1005_01.png
+	map_d plane_dc_1005_01.png
