@@ -9,8 +9,8 @@ newmtl Material__199
 	Kd 0.5880 0.5880 0.5880
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka assets/tenant/cdlpkj-dagkshxm/设备/softenthewaterunit_hlj_1018_01.jpg
-	map_Kd assets/tenant/cdlpkj-dagkshxm/设备/softenthewaterunit_hlj_1018_01.jpg
+	map_Ka /softenthewaterunit_hlj_1018_01.jpg
+	map_Kd /softenthewaterunit_hlj_1018_01.jpg
 
 newmtl Material__200
 	Ns 10.0000
@@ -23,5 +23,5 @@ newmtl Material__200
 	Kd 0.5880 0.5880 0.5880
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka assets/tenant/cdlpkj-dagkshxm/设备/softenthewaterunit_hlj_1018_01.jpg
-	map_Kd assets/tenant/cdlpkj-dagkshxm/设备/softenthewaterunit_hlj_1018_01.jpg
+	map_Ka /softenthewaterunit_hlj_1018_01.jpg
+	map_Kd /softenthewaterunit_hlj_1018_01.jpg

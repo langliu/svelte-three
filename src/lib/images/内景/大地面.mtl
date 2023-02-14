@@ -9,6 +9,6 @@ newmtl Material__1365
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka assets/tenant/cdlpkj-dagkshxm/内景/plane_dc_1005_01.png
-	map_Kd assets/tenant/cdlpkj-dagkshxm/内景/plane_dc_1005_01.png
+	map_Ka /plane_dc_1005_01.png
+	map_Kd /plane_dc_1005_01.png
 	map_d plane_dc_1005_01.png

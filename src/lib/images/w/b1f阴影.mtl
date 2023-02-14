@@ -9,6 +9,6 @@ newmtl Material__79
 	Kd 0.5880 0.5880 0.5880
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka assets/tenant/cdlpkj-dagkshxm/w/building_lp_5001_04.png
-	map_Kd assets/tenant/cdlpkj-dagkshxm/w/building_lp_5001_04.png
-	map_d G:\ͼ��\2022.11.16����\psd\building_lp_5001_04.png
+	map_Ka building_lp_5001_04.png
+	map_Kd building_lp_5001_04.png
+	map_d building_lp_5001_04.png
