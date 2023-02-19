@@ -7,7 +7,11 @@ import {
   WebGLRenderer,
   AxesHelper,
   PointLight,
-  Group
+  Group,
+  Raycaster,
+  Vector2,
+  Color,
+  Object3D
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import gsap from 'gsap';
@@ -19,6 +23,9 @@ import type { Renderer } from 'three';
 const scene = new Scene();
 
 const canvasHeight = window.innerHeight - 48;
+const rayCaster = new Raycaster();
+const mouse = new Vector2();
+let currentObj: Object3D<Event> | null = null;
 
 const camera = new PerspectiveCamera(75, window.innerWidth / canvasHeight, 10, 10000);
 camera.position.set(3000, 3000, 3000);
@@ -209,3 +216,31 @@ export function meshShow(visible: boolean) {
   group5.visible = visible;
   groupB1.visible = visible;
 }
+
+export function handleMouseEvent(e: MouseEvent) {
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.setY(-((e.clientY - 48) / canvasHeight) * 2 + 1);
+
+  rayCaster.setFromCamera(mouse, camera);
+  // 计算物体和射线的焦点
+  const intersects = rayCaster.intersectObjects(scene.children, true);
+  // 清除上一个选中的物体
+  currentObj ? (currentObj.material.emissive = new Color('white')) : (currentObj = null);
+  if (intersects.length) {
+    // console.log(intersects);
+
+    // 处理选中的最上层对象
+    if (intersects[0].object.isMesh) {
+      const level = intersects[0].object.name.includes('f')
+        ? intersects[0].object.name.split('f')?.[0]
+        : '';
+      if (level) {
+        currentObj = scene.getObjectByName(`${level}f亮边`);
+
+        currentObj.material.emissive = new Color('yellow');
+      }
+    }
+  }
+}
+
+window.addEventListener('mousemove', handleMouseEvent, false);
