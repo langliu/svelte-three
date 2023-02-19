@@ -1,18 +1,16 @@
 import {
 	BoxGeometry,
-	DirectionalLight,
-	HemisphereLight,
 	Mesh,
 	MeshStandardMaterial,
 	PerspectiveCamera,
 	Scene,
 	WebGLRenderer,
 	AxesHelper,
-	AmbientLight,
 	PointLight,
 	Group
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import gsap from 'gsap';
 
 import { gltfLoader } from '../../lib/utils/loader';
 
@@ -85,7 +83,6 @@ gltfLoader('5f地板_02', scene, group5);
 gltfLoader('5f亮边', scene, group5);
 gltfLoader('5f墙顶', scene, group5);
 gltfLoader('5f阴影', scene, group5);
-// group5.translateY(500)
 scene.add(group5);
 gltfLoader('b1f地板_01', scene, groupB1, 'glb');
 gltfLoader('b1f地板_02', scene, groupB1, 'glb');
@@ -122,17 +119,52 @@ export function createScene(el: HTMLCanvasElement) {
 }
 
 export function layer() {
-	group1.translateY(500);
-	group2.translateY(1000);
-	group4.translateY(500 + 500 * 2);
-	group5.translateY(500 + 500 * 3);
+	gsap.to(group1.position, {
+		y: 500,
+		duration: 0.2,
+		ease: 'none'
+	});
+	gsap.to(group2.position, {
+		y: 1000,
+		duration: 0.2,
+		ease: 'none'
+	});
+	gsap.to(group4.position, {
+		y: 1500,
+		duration: 0.2,
+		ease: 'none'
+	});
+	gsap.to(group5.position, {
+		y: 2000,
+		duration: 0.2,
+		ease: 'none'
+	});
+	gsap.to(camera.position, {
+		y: 4000,
+		duration: 0.2,
+		ease: 'none'
+	});
+	gsap.to(camera.position, {
+		y: 3000,
+		duration: 0.2,
+		ease: 'none'
+	});
+	gsap.to(camera.position, {
+		z: 6000,
+		duration: 0.2,
+		ease: 'none',
+		onComplete: () => {
+			camera.lookAt(0, 0, 0);
+		}
+	});
 }
 
 export function removeLayer() {
-	group5.translateY(-2000);
-	group4.translateY(-1500);
-	group2.translateY(-1000);
-	group1.translateY(-500);
+	gsap.to([group5.position, group1.position, group2.position, group4.position], {
+		y: 0,
+		duration: 0.2,
+		ease: 'none'
+	});
 }
 
 window.addEventListener('resize', resize);

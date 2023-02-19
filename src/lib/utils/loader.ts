@@ -55,6 +55,7 @@ export function gltfLoader(name: string, scene: Scene, group?: Object3D, type = 
 					child.material.emissiveMap = child.material.map;
 					child.material.metalness = 0.7;
 					child.material.roughness = 1;
+					child.material.envMapIntensity = 1.0;
 				}
 			});
 			if (group) {

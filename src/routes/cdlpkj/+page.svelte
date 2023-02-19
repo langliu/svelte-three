@@ -1,40 +1,27 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { createScene, layer, removeLayer } from './render';
-	let isLayer = false;
+  import { onMount } from 'svelte';
+  import { createScene, layer, removeLayer } from './render';
+  let isLayer = false;
 
-	function handleLayer() {
-		if (isLayer) {
-			removeLayer();
-		} else {
-			layer();
-		}
-		isLayer = !isLayer;
-	}
-	let el: HTMLCanvasElement;
-	onMount(() => {
-		createScene(el);
-	});
+  function handleLayer() {
+    if (isLayer) {
+      removeLayer();
+    } else {
+      layer();
+    }
+    isLayer = !isLayer;
+  }
+  let el: HTMLCanvasElement;
+  onMount(() => {
+    createScene(el);
+  });
 </script>
 
 <canvas bind:this={el} />
 
-<div class="btn" on:click={handleLayer}>分层</div>
-
-<style>
-	.btn {
-		width: 80px;
-		height: 80px;
-		background-color: blueviolet;
-		position: fixed;
-		right: 20px;
-		bottom: 20px;
-		border-radius: 50px;
-		text-align: center;
-		line-height: 80px;
-		font-size: larger;
-		color: white;
-		font-weight: bold;
-    cursor: pointer;
-	}
-</style>
+<button
+  class="text-xl fixed right-4 bottom-4 w-16 h-16 bg-violet-400 flex justify-center items-center rounded-full text-white cursor-pointer"
+  on:click={handleLayer}
+>
+  {isLayer ? '收起' : '展开'}
+</button>
