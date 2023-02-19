@@ -44,39 +44,39 @@ export const modelLoader = (name: string, scene: Scene, group?: Object3D) => {
 export function gltfLoader(name: string, scene: Scene, group?: Object3D, type = 'gltf') {
 	const loader = new GLTFLoader();
 	loader.load(
-		// resource URL
-		`src/lib/models/${name}.${type}`,
-		// called when the resource is loaded
-		function (gltf) {
-			gltf.scene.traverse(function (child) {
-				if (child.isMesh) {
-					child.castShadow = true;
-					child.material.emissive = child.material.color;
-					child.material.emissiveMap = child.material.map;
-					child.material.metalness = 0.7;
-					child.material.roughness = 1;
-					child.material.envMapIntensity = 1.0;
-				}
-			});
-			if (group) {
-				group.add(gltf.scene);
-			} else {
-				scene.add(gltf.scene);
-			}
+    // resource URL
+    `https://allenimages.oss-cn-beijing.aliyuncs.com/three/${name}.${type}`,
+    // called when the resource is loaded
+    function (gltf) {
+      gltf.scene.traverse(function (child) {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.material.emissive = child.material.color;
+          child.material.emissiveMap = child.material.map;
+          child.material.metalness = 0.7;
+          child.material.roughness = 1;
+          child.material.envMapIntensity = 1.0;
+        }
+      });
+      if (group) {
+        group.add(gltf.scene);
+      } else {
+        scene.add(gltf.scene);
+      }
 
-			gltf.animations; // Array<THREE.AnimationClip>
-			gltf.scene; // THREE.Group
-			gltf.scenes; // Array<THREE.Group>
-			gltf.cameras; // Array<THREE.Camera>
-			gltf.asset; // Object
-		},
-		// called while loading is progressing
-		function (xhr) {
-			console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
-		},
-		// called when loading has errors
-		function (error) {
-			console.log('An error happened');
-		}
-	);
+      gltf.animations; // Array<THREE.AnimationClip>
+      gltf.scene; // THREE.Group
+      gltf.scenes; // Array<THREE.Group>
+      gltf.cameras; // Array<THREE.Camera>
+      gltf.asset; // Object
+    },
+    // called while loading is progressing
+    function (xhr) {
+      console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+    },
+    // called when loading has errors
+    function (error) {
+      console.log('An error happened');
+    }
+  );
 }
